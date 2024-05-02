@@ -1,5 +1,10 @@
 import express from 'express';
-
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+dotenv.config();
+mongoose.connect(process.env.MONGO_URL).then(()=>{
+    console.log('Server is connected to db');
+}).catch(err => console.log(err));
 const app = express();
 
 // Define a route handler for the root URL
